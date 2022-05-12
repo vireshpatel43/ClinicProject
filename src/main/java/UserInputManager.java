@@ -232,6 +232,8 @@ public class UserInputManager {
         for (int i = 0; i < patientList.size(); i++) {
             if (chosenPatient == patientList.get(i).patNo) {
                 Patient p1 = patientList.get(i);
+                System.out.println("Enter a diagnosis to assign the patient: ");
+                String s = sc.nextLine();
                 String diagnosis = sc.nextLine();
                 p1.getDiagnoses().add(diagnosis);
             }
@@ -256,8 +258,10 @@ public class UserInputManager {
         for (int i = 0; i < patientList.size(); i++) {
             if (chosenPatient == patientList.get(i).patNo) {
                 Patient p1 = patientList.get(i);
-                String prescription = sc.nextLine();
-                p1.getCurrentMeds().add(prescription);
+                System.out.println("Enter a prescription to assign the patient: ");
+                String s = sc.nextLine();
+                String meds = sc.nextLine();
+                p1.getCurrentMeds().add(meds);
             }
             else {
                 System.out.println("Patient not found!");
