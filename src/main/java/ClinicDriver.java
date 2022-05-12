@@ -13,6 +13,7 @@ public class ClinicDriver {
         HashMap<String, Doctor> doctorAccounts = new HashMap<>();
         HashMap<String, Patient> patientAccounts = new HashMap<>();
 
+
         while (true) {
             System.out.println("Welcome to Vanier Clinic Application");
             int loginChoice = uim.retrieveLoginOption();

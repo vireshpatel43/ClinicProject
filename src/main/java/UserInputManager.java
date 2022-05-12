@@ -232,6 +232,8 @@ public class UserInputManager {
         for (int i = 0; i < patientList.size(); i++) {
             if (chosenPatient == patientList.get(i).patNo) {
                 Patient p1 = patientList.get(i);
+                System.out.println("Enter a diagnosis to assign the patient: ");
+                String s = sc.nextLine();
                 String diagnosis = sc.nextLine();
                 p1.getDiagnoses().add(diagnosis);
             }
@@ -256,8 +258,10 @@ public class UserInputManager {
         for (int i = 0; i < patientList.size(); i++) {
             if (chosenPatient == patientList.get(i).patNo) {
                 Patient p1 = patientList.get(i);
-                String prescription = sc.nextLine();
-                p1.getCurrentMeds().add(prescription);
+                System.out.println("Enter a prescription to assign the patient: ");
+                String s = sc.nextLine();
+                String meds = sc.nextLine();
+                p1.getCurrentMeds().add(meds);
             }
             else {
                 System.out.println("Patient not found!");
@@ -340,6 +344,7 @@ public class UserInputManager {
         return organ;
     }
 
+
     public static PatientAppoint retrievePatientAppoint(HashMap<String, Doctor> doctorAccounts, Calendar c) {
         Scanner scApp = new Scanner(System.in);
         int chosenStartHour;
@@ -347,7 +352,7 @@ public class UserInputManager {
         String chosenReason;
         LocalDate date = UserInputManager.getDate("Enter the date of your appointment (ex. yyyy-mm-dd): ");
         System.out.println("When would you like your appointment to begin? (value between: 9 - 17)");
-        chosenStartHour = scApp.nextInt();;
+        chosenStartHour = scApp.nextInt();
         while (chosenStartHour < PatientAppoint.OPENING_HOUR || chosenStartHour > PatientAppoint.CLOSING_HOUR) {
             System.out.println("Clinic is closed at that time. Enter a different time");
             chosenStartHour = scApp.nextInt();
